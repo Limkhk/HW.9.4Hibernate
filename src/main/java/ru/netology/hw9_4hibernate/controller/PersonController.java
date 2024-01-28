@@ -20,16 +20,16 @@ public class PersonController {
 
     @GetMapping("/persons/by-city")
     public List<Persons> fetchCity(@RequestParam String city) {
-        return personCrudRepository.findByCityOfLiving(city);
+        return personCrudRepository.findByCityOfLivingJpqlQuery(city);
     }
 
     @GetMapping("/persons/by-age")
     public List<Persons> fetchAge(@RequestParam int age) {
-        return personCrudRepository.findByAgeLessThanOrderByAgeAsc(age);
+        return personCrudRepository.findByAgeJpqlQuery(age);
     }
 
     @GetMapping("/persons/by-name-and-surname")
     public Optional<Persons> getPersonByNameAndSurname(@RequestParam String name, @RequestParam String surname) {
-        return personCrudRepository.findByNameAndSurname(name, surname);
+        return personCrudRepository.findByAgeJpqlQuery(name, surname);
     }
 }
